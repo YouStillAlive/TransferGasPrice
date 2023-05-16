@@ -1,13 +1,13 @@
 const { expect } = require("chai")
 
-describe("TransferInGasPrice", function () {
+describe("TransferInGasPriceWithErrors\n", function () {
     let transferInGasPrice
     let token, owner
     const amount = 100
 
     beforeEach(async function () {
         ;[owner] = await ethers.getSigners()
-        const TransferInGasPrice = await ethers.getContractFactory("TransferInGasPrice")
+        const TransferInGasPrice = await ethers.getContractFactory("TransferInGasPriceWithErrors")
         transferInGasPrice = await TransferInGasPrice.deploy()
         await transferInGasPrice.deployed()
 
@@ -40,7 +40,7 @@ describe("TransferInGasPrice", function () {
         }
         const gasPrice = await transferInGasPrice.connect(owner).callStatic.getSingleTransferInGasPrice(token, amounts)
         console.log(
-            "Gas Price for Single Poolz Transfer In with " + amountsLength + " iterations: ",
+            "Error: Gas Price for Single Poolz Transfer In with " + amountsLength + " iterations: ",
             gasPrice.toString()
         )
     }
@@ -50,7 +50,7 @@ describe("TransferInGasPrice", function () {
             .connect(owner)
             .callStatic.getMultiplyTransferInGasPrice(token, amount, iterations)
         console.log(
-            "Gas Price for Multiply Poolz Transfer In with " + iterations + " iterations: ",
+            "Error: Gas Price for Multiply Poolz Transfer In with " + iterations + " iterations: ",
             gasPrice.toString()
         )
     }
