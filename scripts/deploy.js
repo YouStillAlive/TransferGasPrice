@@ -2,10 +2,10 @@ const hre = require("hardhat")
 
 async function main() {
     // Get the contract factory
-    const TransferGasPrice = await hre.ethers.getContractFactory("TransferGasPrice")
+    const TransferInGasPrice = await hre.ethers.getContractFactory("TransferInGasPrice")
 
     // Deploy the contract
-    const transferGasPrice = await TransferGasPrice.deploy()
+    const transferGasPrice = await TransferInGasPrice.deploy()
 
     // Wait for the contract to be mined
     await transferGasPrice.deployed()
