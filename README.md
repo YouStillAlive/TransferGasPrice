@@ -72,6 +72,27 @@ Gas Price for Multiply Poolz Transfer In with 10 iterations:  163922
 Gas Price for Multiply Poolz Transfer In with 50 iterations:  694120
 Gas Price for Multiply Poolz Transfer In with 100 iterations:  1357009
 ```
+Using array gas results
+```solidity
+    function getMultiplyTransferInGasPrice(
+        address token,
+        uint256[] memory amounts
+    ) external returns (uint256) {
+        uint256 gasBefore = gasleft();
+        uint256 length = amounts.length;
+        for (uint256 i = 0; i < length; ++i)
+            TransferInToken(token, msg.sender, amounts[i]);
+        return gasBefore - gasleft();
+    }
+```
+```
+Gas Price for Multiply Poolz Transfer In with 1 iterations:  44771
+Gas Price for Multiply Poolz Transfer In with 5 iterations:  97981
+Gas Price for Multiply Poolz Transfer In with 10 iterations:  164495
+Gas Price for Multiply Poolz Transfer In with 50 iterations:  696693
+Gas Price for Multiply Poolz Transfer In with 100 iterations:  1362150
+```
+
 ### Using Custom Errors 
 Test result using Single Poolz Transfer In calls with Custom errors:
 
