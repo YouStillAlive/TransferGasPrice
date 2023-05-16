@@ -49,6 +49,7 @@ Gas Price for Single Poolz Transfer In with 5 iterations:  46879
 Gas Price for Single Poolz Transfer In with 10 iterations:  49134
 Gas Price for Single Poolz Transfer In with 50 iterations:  67176
 Gas Price for Single Poolz Transfer In with 100 iterations:  89727
+```
 #
 Test result using Multiply Poolz Transfer In calls:
 ```solidity
@@ -63,8 +64,8 @@ Test result using Multiply Poolz Transfer In calls:
         return gasBefore - gasleft();
     }
 ```
-```
 
+```
 Gas Price for Multiply Poolz Transfer In with 1 iterations:  44641
 Gas Price for Multiply Poolz Transfer In with 5 iterations:  97654
 Gas Price for Multiply Poolz Transfer In with 10 iterations:  163922
